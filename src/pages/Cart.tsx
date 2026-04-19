@@ -2,7 +2,7 @@ import React from 'react';
 import { useCartStore } from '../store/cartStore';
 
 export default function Cart() {
-  const { items, removeFromCart, clearCart, getTotalPrice } = useCartStore();
+  const { items, removeFromCart, updateQuantity, clearCart, getTotalPrice } = useCartStore();
 
   if (items.length === 0) {
     return (
@@ -18,27 +18,45 @@ export default function Cart() {
       <h2 className="text-3xl font-extrabold text-gray-900 mb-8">Tu Carrito de Compras</h2>
       
       <div className="bg-white rounded-xl shadow-lg p-6">
-        {items.map((item) => (
-          <div key={item.id} className="flex items-center justify-between border-b py-4 last:border-b-0">
-            <div className="flex items-center space-x-4">
-              <img src={item.image} alt={item.title} className="w-16 h-16 object-contain" />
-              <div>
-                <h3 className="text-lg font-bold text-gray-800 line-clamp-1">{item.title}</h3>
-                <p className="text-sm text-gray-500">Cantidad: {item.quantity}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {items.map((item) => (
+            <div key={item.id} className="flex flex-col border rounded-lg p-4 gap-4 hover:shadow-md transition-shadow">
+              <div className="flex items-center space-x-4">
+                <img src={item.image} alt={item.title} className="w-20 h-20 object-contain bg-white rounded" />
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-gray-800 line-clamp-2">{item.title}</h3>
+                  <div className="flex items-center mt-3 space-x-3">
+                    <span className="text-sm text-gray-500 font-medium">Cantidad:</span>
+                    <div className="flex items-center bg-gray-100 rounded-lg shadow-sm border border-gray-200">
+                      <button 
+                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                        className="px-3 py-1 text-gray-600 hover:bg-gray-200 hover:text-black rounded-l-lg font-bold transition-colors"
+                      >
+                        -
+                      </button>
+                      <span className="px-3 font-semibold w-8 text-center">{item.quantity}</span>
+                      <button 
+                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                        className="px-3 py-1 text-gray-600 hover:bg-gray-200 hover:text-black rounded-r-lg font-bold transition-colors"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
+                <span className="text-xl font-black text-gray-900">${(item.price * item.quantity).toFixed(2)}</span>
+                <button 
+                  onClick={() => removeFromCart(item.id)}
+                  className="text-red-500 hover:text-white p-2 rounded-lg hover:bg-red-500 transition-colors font-bold text-sm"
+                >
+                  Eliminar
+                </button>
               </div>
             </div>
-            <div className="flex items-center space-x-6">
-              <span className="text-xl font-bold text-gray-900">${(item.price * item.quantity).toFixed(2)}</span>
-              <button 
-                onClick={() => removeFromCart(item.id)}
-                className="text-red-500 hover:text-red-700 p-2 rounded-full hover:bg-red-50 transition-colors"
-                title="Eliminar del carrito"
-              >
-                🗑️
-              </button>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         <div className="mt-8 pt-6 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center">
           <div className="text-2xl font-black text-gray-900 mb-4 sm:mb-0">

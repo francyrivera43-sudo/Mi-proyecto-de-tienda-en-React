@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-}
+import { useCartStore, Product } from '../store/cartStore';
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const addToCart = useCartStore(state => state.addToCart);
 
   useEffect(() => {
     // Pedir los productos a FakeStore API
@@ -60,8 +53,11 @@ export default function Home() {
                 <span className="text-xl font-black text-gray-900">
                   ${product.price.toFixed(2)}
                 </span>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full transition-colors">
-                  🛒
+                <button 
+                  onClick={() => addToCart(product)}
+                  className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full transition-colors"
+                >
+                  ➕🛒
                 </button>
               </div>
             </div>

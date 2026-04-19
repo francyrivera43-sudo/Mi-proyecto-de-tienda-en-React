@@ -67,36 +67,62 @@ export default function Cart() {
         ))}
       </div>
 
-      <div className="mt-12 max-w-lg">
-        <h3 className="text-lg font-bold text-gray-900 mb-6">Order Summary</h3>
-        
-        <div className="space-y-4 text-sm text-gray-600 border-b border-gray-100 pb-4">
-          <div className="flex justify-between">
-            <span>Subtotal</span>
-            <span>${subtotal.toFixed(2)}</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Shipping</span>
-            <span className="text-green-500 font-medium">Free</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Tax (19%)</span>
-            <span>${tax.toFixed(2)}</span>
-          </div>
-        </div>
-        
-        <div className="flex justify-between items-center py-4">
-          <span className="text-base font-bold text-gray-900">Total</span>
-          <span className="text-base font-bold text-gray-900">${total.toFixed(2)}</span>
+      <div className="mt-12 flex flex-col md:flex-row gap-8">
+        <div className="flex-1 bg-white border border-gray-100 shadow-sm rounded-xl p-6 h-fit">
+          <h3 className="text-lg font-bold text-gray-900 mb-6">Información de Pago</h3>
+          <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert('¡Pago procesado con éxito!'); clearCart(); }}>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Nombre en la tarjeta</label>
+              <input type="text" required placeholder="Juan Pérez" className="w-full px-4 py-2 border border-gray-200 rounded-md bg-gray-50 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Número de tarjeta</label>
+              <input type="text" required placeholder="0000 0000 0000 0000" className="w-full px-4 py-2 border border-gray-200 rounded-md bg-gray-50 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500" />
+            </div>
+            <div className="flex gap-4">
+              <div className="flex-1">
+                <label className="block text-sm font-medium text-gray-700 mb-1">Vencimiento</label>
+                <input type="text" required placeholder="MM/AA" className="w-full px-4 py-2 border border-gray-200 rounded-md bg-gray-50 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500" />
+              </div>
+              <div className="flex-1">
+                <label className="block text-sm font-medium text-gray-700 mb-1">CVC</label>
+                <input type="text" required placeholder="123" className="w-full px-4 py-2 border border-gray-200 rounded-md bg-gray-50 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500" />
+              </div>
+            </div>
+            <button type="submit" className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition-colors text-sm">
+              Proceder al Pago Seguro
+            </button>
+          </form>
         </div>
 
-        <div className="space-y-3 mt-4">
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-md transition-colors text-sm">
-            Proceed to Checkout
-          </button>
-          <button className="w-full bg-gray-50 hover:bg-gray-100 text-gray-800 font-medium py-3 px-4 rounded-md transition-colors text-sm">
-            Continue Shopping
-          </button>
+        <div className="md:w-96 bg-white border border-gray-100 shadow-sm rounded-xl p-6 h-fit">
+          <h3 className="text-lg font-bold text-gray-900 mb-6">Order Summary</h3>
+          
+          <div className="space-y-4 text-sm text-gray-600 border-b border-gray-100 pb-4">
+            <div className="flex justify-between">
+              <span>Subtotal</span>
+              <span>${subtotal.toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Shipping</span>
+              <span className="text-green-500 font-medium">Free</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Tax (19%)</span>
+              <span>${tax.toFixed(2)}</span>
+            </div>
+          </div>
+          
+          <div className="flex justify-between items-center py-4">
+            <span className="text-base font-bold text-gray-900">Total</span>
+            <span className="text-base font-bold text-gray-900">${total.toFixed(2)}</span>
+          </div>
+
+          <div className="space-y-3 mt-4">
+            <button className="w-full bg-gray-50 hover:bg-gray-100 text-gray-800 font-medium py-3 px-4 rounded-md transition-colors text-sm border border-gray-200">
+              Continue Shopping
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -9,10 +9,18 @@ export default function Navbar() {
     <nav className="bg-white border-b sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
+          <div className="flex items-center space-x-6">
             <Link to="/" className="text-xl font-bold text-gray-900 tracking-tight">
               Store
             </Link>
+            <div className="hidden sm:flex space-x-4">
+              <Link to="/" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+                Todo
+              </Link>
+              <Link to="/ropa-hombre" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+                Ropa de Hombre
+              </Link>
+            </div>
           </div>
           
           <div className="hidden md:flex flex-1 justify-center px-8">

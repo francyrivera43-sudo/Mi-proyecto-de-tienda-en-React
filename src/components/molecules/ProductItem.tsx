@@ -1,5 +1,5 @@
 import React from 'react';
-import { Product } from '../../../store/cartStore';
+import { Product } from '../../store/cartStore';
 
 interface ProductItemProps {
   product: Product;

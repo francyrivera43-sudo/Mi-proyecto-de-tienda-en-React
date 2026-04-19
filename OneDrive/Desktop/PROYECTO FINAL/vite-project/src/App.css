@@ -1,0 +1,32 @@
+.product-item:hover .reactions-wrap {
+  display: flex;
+}
+
+.reactions-wrap {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+/* ESTO ES LO QUE HACE QUE EL CARRITO SE VEA A UN LADO */
+.drawer-wrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100vh;
+  background-color: white;
+  z-index: 1000;
+  border-left: 2px solid #0ea5e9;
+  
+  /* Esto lo esconde */
+  transform: translate(100%, 0);
+  transition: all cubic-bezier(0.18, 0.89, 0.32, 1.28) 400ms;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+}
+
+/* Esto lo muestra al lado de los cuadros verdes cuando hace clic */
+.drawer-wrap-open {
+  transform: translate(0, 0);
+}

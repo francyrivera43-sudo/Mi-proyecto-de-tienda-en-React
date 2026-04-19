@@ -1,6 +1,8 @@
 import React from 'react';
 import { useCartStore } from '../../store/cartStore';
 import type { Product } from '../../store/cartStore';
+import Button from '../atoms/Button';
+import Rating from '../atoms/Rating';
 
 interface ProductItemProps {
   product: Product;
@@ -27,9 +29,7 @@ export default function ProductItem({ product }: ProductItemProps) {
           {product.title}
         </h3>
         
-        <div className="flex items-center text-[10px] text-yellow-500 mb-2">
-          ⭐⭐⭐⭐⭐
-        </div>
+        <Rating rate={4.5} />
 
         <div className="mt-auto flex items-center justify-between pt-2">
           <span className="text-sm font-black text-gray-900">
@@ -53,12 +53,9 @@ export default function ProductItem({ product }: ProductItemProps) {
               </button>
             </div>
           ) : (
-            <button 
-              onClick={() => addToCart(product)}
-              className="bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold py-1.5 px-3 rounded shadow-sm transition-colors"
-            >
+            <Button size="sm" onClick={() => addToCart(product)}>
               + Add
-            </button>
+            </Button>
           )}
         </div>
       </div>

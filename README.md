@@ -1,75 +1,82 @@
-# React + TypeScript + Vite
+# Fullstack Challenge - E-commerce 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🎯 Objetivo General
+Desarrollar una aplicación web tipo **E-commerce** utilizando React, aplicando conceptos clave como:
+- Componentización (Atomic Design)
+- Manejo de estado (Zustand)
+- Consumo de APIs (FakeStore API)
+- Navegación entre vistas (SPA con React Router)
+- Buenas prácticas de desarrollo frontend
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📝 Presentación del Proyecto
+### Información General
+- **Nombre del Proyecto:** Fullstack Challenge - E-commerce
+- **Autor:** Francy Rivera
+- **Repositorio:** https://github.com/francyrivera43-sudo/Mi-proyecto-de-tienda-en-React
+- **Deploy (GitHub Pages):** [Enlace en vivo]
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 🛠️ Tecnologías y Herramientas
+- **React.js** (Vite)
+- **TypeScript**
+- **Tailwind CSS** (Estilos)
+- **Zustand** (Estado Global)
+- **React Router Dom** (Navegación)
+- **Axios** (Peticiones HTTP)
+- **FakeStore API** (Datos reales)
 
-Note: This will impact Vite dev & build performances.
+---
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📂 Estructura del Proyecto (Atomic Design)
+```text
+src/
+├── components/
+│   ├── atoms/      (botones, inputs, badges, rating)
+│   ├── molecules/  (cards de producto)
+│   ├── organisms/  (navbar, footer)
+│   └── templates/  (layouts de páginas)
+├── pages/          (vistas principales: Home, Cart, Login, etc.)
+├── store/          (Zustand stores: cart, auth, products)
+├── styles/         (estilos globales)
+└── App.tsx         (configuración de rutas)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Instalación y Uso
+Sigue estos pasos para ejecutar el proyecto localmente:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/francyrivera43-sudo/Mi-proyecto-de-tienda-en-React
+   ```
+
+2. **Entrar al proyecto:**
+   ```bash
+   cd mi-tienda
+   ```
+
+3. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
+
+4. **Ejecutar el proyecto:**
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## ✅ Funcionalidades Implementadas
+- [x] Registro de usuarios y sesión persistente (LocalStorage).
+- [x] Galería dinámica de productos desde API.
+- [x] Paginación de productos (8 por página).
+- [x] Buscador de productos en tiempo real (Global).
+- [x] Carrito de compras funcional (Agregar/Quitar/Cantidades).
+- [x] Previsualización de checkout y resumen de compra.
+- [x] Diseño 100% Responsivo.
+- [x] Rutas protegidas (Login requerido para Checkout).

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useCartStore } from '../../store/cartStore';
 import type { Product } from '../../store/cartStore';
 import Button from '../atoms/Button';
@@ -17,17 +18,19 @@ export default function ProductItem({ product }: ProductItemProps) {
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-200 flex flex-col">
-      <div className="h-40 bg-white p-4 flex justify-center items-center relative group">
+      <Link to={`/product/${product.id}`} className="h-40 bg-white p-4 flex justify-center items-center relative group overflow-hidden">
         <img 
           src={product.image} 
           alt={product.title} 
-          className="max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+          className="max-h-full object-contain group-hover:scale-110 transition-transform duration-500 ease-in-out"
         />
-      </div>
+      </Link>
       <div className="p-3 flex flex-col flex-grow bg-gray-50 border-t border-gray-100">
-        <h3 className="text-xs font-semibold text-gray-800 line-clamp-2 h-8 mb-1" title={product.title}>
-          {product.title}
-        </h3>
+        <Link to={`/product/${product.id}`} className="hover:text-violet-600 transition-colors">
+          <h3 className="text-xs font-semibold text-gray-800 line-clamp-2 h-8 mb-1" title={product.title}>
+            {product.title}
+          </h3>
+        </Link>
         
         <Rating rate={4.5} />
 

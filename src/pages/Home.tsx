@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useCartStore } from '../store/cartStore';
 import { useProductStore } from '../store/productStore';
 import type { Product } from '../store/cartStore';
 import ProductItem from '../components/molecules/ProductItem';
@@ -9,35 +8,51 @@ import { customProducts } from '../mockdata/products';
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+
   const searchTerm = useProductStore(state => state.searchTerm);
-  
-  // Paginación
+
+  // 📄 Paginación
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 8;
 
+  // 🔄 Cargar productos
   useEffect(() => {
     axios.get('https://fakestoreapi.com/products')
       .then(response => {
-        // Combinar productos de la API con los exclusivos
         setProducts([...customProducts, ...response.data]);
         setLoading(false);
       })
       .catch(error => {
         console.error("Error cargando productos:", error);
-        setProducts(customProducts); // Cargar al menos los exclusivos si falla la API
+        setProducts(customProducts);
         setLoading(false);
       });
   }, []);
 
-  // 🔍 filtro de búsqueda global
+  // 🔍 Filtro de búsqueda
   const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    product.title.toLowerCase().includes(searchTerm.trim().toLowerCase())
   );
 
-  // Lógica de paginación
+  // 🔥 Resetear página al buscar
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm]);
+
+  // 🔥 Scroll automático al buscar (UX PRO)
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [searchTerm]);
+
+  // 📄 Lógica de paginación
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
   const paginate = (pageNumber: number) => {
@@ -45,6 +60,7 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // ⏳ Loader
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
@@ -56,6 +72,7 @@ export default function Home() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
 
+      {/* 🎯 HEADER */}
       <header className="mb-10 sm:mb-16 text-center">
         <h2 className="text-3xl sm:text-5xl font-black text-gray-900 mb-4 tracking-tighter uppercase">
           DOJO <span className="text-violet-600">SELECTION</span>
@@ -65,6 +82,7 @@ export default function Home() {
         </p>
       </header>
 
+      {/* 🛍 PRODUCTOS */}
       {currentProducts.length > 0 ? (
         <>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-8">
@@ -76,9 +94,11 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Paginación Responsive */}
+          {/* 📄 PAGINACIÓN */}
           {totalPages > 1 && (
             <div className="flex flex-wrap justify-center items-center mt-16 gap-2">
+
+              {/* ← Anterior */}
               <button
                 onClick={() => paginate(currentPage - 1)}
                 disabled={currentPage === 1}
@@ -86,6 +106,8 @@ export default function Home() {
               >
                 ←
               </button>
+
+              {/* Números */}
               <div className="flex gap-1">
                 {[...Array(totalPages)].map((_, i) => (
                   <button
@@ -93,14 +115,16 @@ export default function Home() {
                     onClick={() => paginate(i + 1)}
                     className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl text-sm font-black transition-all ${
                       currentPage === i + 1 
-                      ? 'bg-violet-600 text-white shadow-lg shadow-violet-600/30' 
-                      : 'bg-white border-2 border-gray-100 text-gray-400 hover:border-violet-200'
+                        ? 'bg-violet-600 text-white shadow-lg shadow-violet-600/30' 
+                        : 'bg-white border-2 border-gray-100 text-gray-400 hover:border-violet-200'
                     }`}
                   >
                     {i + 1}
                   </button>
                 ))}
               </div>
+
+              {/* → Siguiente */}
               <button
                 onClick={() => paginate(currentPage + 1)}
                 disabled={currentPage === totalPages}
@@ -112,8 +136,11 @@ export default function Home() {
           )}
         </>
       ) : (
+        // ❌ SIN RESULTADOS
         <div className="text-center py-20">
-          <p className="text-xl text-gray-500">No se encontraron productos que coincidan con "{searchTerm}".</p>
+          <p className="text-xl text-gray-500">
+            No se encontraron productos para "{searchTerm}"
+          </p>
         </div>
       )}
     </div>

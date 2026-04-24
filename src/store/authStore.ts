@@ -25,19 +25,21 @@ export const useAuthStore = create<AuthState>()(
       users: [],
       isAuthenticated: false,
 
-      // REGISTRO
       register: (newUser) => {
-        const exists = get().users.find(u => u.email === newUser.email);
+        const exists = get().users.some(u => u.email === newUser.email);
         if (exists) return false;
 
-        set(state => ({
-          users: [...state.users, newUser]
-        }));
+        const updatedUsers = [...get().users, newUser];
+
+        set({
+          users: updatedUsers,
+          user: newUser, // 👈 IMPORTANTE: lo deja logueado
+          isAuthenticated: true
+        });
 
         return true;
       },
 
-      // LOGIN REAL
       login: (email, password) => {
         const user = get().users.find(
           u => u.email === email && u.password === password
@@ -45,15 +47,27 @@ export const useAuthStore = create<AuthState>()(
 
         if (!user) return false;
 
-        set({ user, isAuthenticated: true });
+        set({
+          user,
+          isAuthenticated: true
+        });
+
         return true;
       },
 
-      // LOGOUT
-      logout: () => set({ user: null, isAuthenticated: false }),
+      logout: () =>
+        set({
+          user: null,
+          isAuthenticated: false
+        }),
     }),
     {
       name: 'auth-storage',
+      partialize: (state) => ({
+        user: state.user,
+        users: state.users,
+        isAuthenticated: state.isAuthenticated
+      })
     }
   )
 );

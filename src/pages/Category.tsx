@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import { customProducts } from '../mockdata/products';
 import type { Product } from '../store/cartStore';
 import ProductItem from '../components/molecules/ProductItem';
 
@@ -11,15 +11,13 @@ export default function Category() {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`https://fakestoreapi.com/products/category/${categoryName}`)
-      .then(response => {
-        setProducts(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error("Error cargando productos de la categoría:", error);
-        setLoading(false);
-      });
+    setTimeout(() => {
+      const filtered = customProducts.filter(
+        (p) => p.category.toLowerCase() === categoryName?.toLowerCase()
+      );
+      setProducts(filtered as unknown as Product[]);
+      setLoading(false);
+    }, 400);
   }, [categoryName]);
 
   if (loading) {

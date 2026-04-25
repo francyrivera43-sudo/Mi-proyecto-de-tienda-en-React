@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { customProducts } from '../mockdata/products';
 import { useCartStore, type Product } from '../store/cartStore';
 import Button from '../components/atoms/Button';
 import Rating from '../components/atoms/Rating';
@@ -13,15 +13,12 @@ export default function ProductDetail() {
   const { addToCart, items } = useCartStore();
 
   useEffect(() => {
-    axios.get(`https://fakestoreapi.com/products/${id}`)
-      .then(response => {
-        setProduct(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error("Error cargando producto:", error);
-        setLoading(false);
-      });
+    setLoading(true);
+    setTimeout(() => {
+      const found = customProducts.find((p) => p.id === Number(id));
+      setProduct((found as unknown as Product) || null);
+      setLoading(false);
+    }, 400);
   }, [id]);
 
   if (loading) {

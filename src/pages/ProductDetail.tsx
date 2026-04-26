@@ -73,8 +73,8 @@ export default function ProductDetail() {
           </h1>
 
           <div className="mt-4 flex items-baseline space-x-2">
-            <span className="text-3xl font-black text-violet-600">${product.price.toFixed(2)}</span>
-            <span className="text-sm text-gray-400 line-through">${(product.price * 1.2).toFixed(2)}</span>
+            <span className="text-3xl font-black text-violet-600">${(product.price).toLocaleString("es-CO", { minimumFractionDigits: 0 })}</span>
+            <span className="text-sm text-gray-400 line-through">${((product.price * 1.2)).toLocaleString("es-CO", { minimumFractionDigits: 0 })}</span>
           </div>
 
           <div className="mt-8 border-t border-gray-100 pt-8">

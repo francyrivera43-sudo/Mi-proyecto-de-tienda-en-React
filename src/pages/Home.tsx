@@ -70,7 +70,7 @@ export default function Home() {
         )}
 
         <h2 className="text-3xl sm:text-5xl font-black text-gray-900 mb-4 tracking-tighter uppercase">
-          DOJO <span className="text-violet-600">SELECTION</span>
+          DOJO <span className="text-violet-600">FRANCY</span>
         </h2>
 
         <p className="text-gray-500 max-w-2xl mx-auto text-sm sm:text-base px-4">

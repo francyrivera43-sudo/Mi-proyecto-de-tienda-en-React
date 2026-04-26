@@ -98,7 +98,7 @@ export default function Checkout() {
                 className="w-full py-5 text-lg font-bold shadow-xl shadow-violet-500/20 mt-4" 
                 disabled={isProcessing}
               >
-                {isProcessing ? '⚡ Procesando pago...' : `Confirmar y Pagar $${total.toFixed(2)}`}
+                {isProcessing ? '⚡ Procesando pago...' : `Confirmar y Pagar $${(total).toLocaleString("es-CO", { minimumFractionDigits: 0 })}`}
               </Button>
             </form>
           </div>
@@ -118,7 +118,7 @@ export default function Checkout() {
                     <div className="ml-4 flex-1 flex flex-col">
                       <div className="flex justify-between text-sm font-medium text-gray-900">
                         <h4 className="line-clamp-1">{item.title}</h4>
-                        <p className="ml-4">${(item.price * item.quantity).toFixed(2)}</p>
+                        <p className="ml-4">${((item.price * item.quantity)).toLocaleString("es-CO", { minimumFractionDigits: 0 })}</p>
                       </div>
                       <p className="mt-1 text-sm text-gray-500">Cant: {item.quantity}</p>
                     </div>
@@ -130,7 +130,7 @@ export default function Checkout() {
             <div className="mt-10 space-y-4 text-sm text-gray-600 border-t border-gray-200 pt-6">
               <div className="flex justify-between">
                 <span>Subtotal</span>
-                <span className="font-medium text-gray-900">${subtotal.toFixed(2)}</span>
+                <span className="font-medium text-gray-900">${(subtotal).toLocaleString("es-CO", { minimumFractionDigits: 0 })}</span>
               </div>
               <div className="flex justify-between">
                 <span>Envío</span>
@@ -138,11 +138,11 @@ export default function Checkout() {
               </div>
               <div className="flex justify-between">
                 <span>Impuestos (19%)</span>
-                <span className="font-medium text-gray-900">${tax.toFixed(2)}</span>
+                <span className="font-medium text-gray-900">${(tax).toLocaleString("es-CO", { minimumFractionDigits: 0 })}</span>
               </div>
               <div className="flex justify-between text-base font-bold text-gray-900 pt-4 border-t border-gray-200">
                 <span>Total</span>
-                <span>${total.toFixed(2)}</span>
+                <span>${(total).toLocaleString("es-CO", { minimumFractionDigits: 0 })}</span>
               </div>
             </div>
           </div>

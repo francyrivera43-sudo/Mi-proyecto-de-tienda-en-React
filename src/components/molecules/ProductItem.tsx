@@ -36,7 +36,7 @@ export default function ProductItem({ product }: ProductItemProps) {
 
         <div className="mt-auto flex items-center justify-between pt-2">
           <span className="text-sm font-black text-gray-900">
-            ${product.price.toFixed(2)}
+            ${(product.price).toLocaleString("es-CO", { minimumFractionDigits: 0 })}
           </span>
           
           {quantity > 0 ? (

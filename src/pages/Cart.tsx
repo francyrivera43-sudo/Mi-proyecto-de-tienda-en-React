@@ -41,7 +41,7 @@ export default function Cart() {
                   <div>
                     <div className="flex justify-between text-base font-medium text-gray-900">
                       <h3 className="line-clamp-1">{item.title}</h3>
-                      <p className="ml-4 font-bold">${(item.price * item.quantity).toFixed(2)}</p>
+                      <p className="ml-4 font-bold">${((item.price * item.quantity)).toLocaleString("es-CO", { minimumFractionDigits: 0 })}</p>
                     </div>
                     <p className="mt-1 text-sm text-gray-500">{item.category}</p>
                   </div>
@@ -87,7 +87,7 @@ export default function Cart() {
             <div className="space-y-4 border-b border-gray-100 pb-6">
               <div className="flex justify-between text-sm text-gray-600">
                 <span>Subtotal</span>
-                <span className="font-medium text-gray-900">${subtotal.toFixed(2)}</span>
+                <span className="font-medium text-gray-900">${(subtotal).toLocaleString("es-CO", { minimumFractionDigits: 0 })}</span>
               </div>
               <div className="flex justify-between text-sm text-gray-600">
                 <span>Envío estimado</span>
@@ -95,13 +95,13 @@ export default function Cart() {
               </div>
               <div className="flex justify-between text-sm text-gray-600">
                 <span>Impuestos (19%)</span>
-                <span className="font-medium text-gray-900">${tax.toFixed(2)}</span>
+                <span className="font-medium text-gray-900">${(tax).toLocaleString("es-CO", { minimumFractionDigits: 0 })}</span>
               </div>
             </div>
             
             <div className="flex justify-between items-center py-6">
               <span className="text-xl font-extrabold text-gray-900">Total</span>
-              <span className="text-xl font-extrabold text-gray-900">${total.toFixed(2)}</span>
+              <span className="text-xl font-extrabold text-gray-900">${(total).toLocaleString("es-CO", { minimumFractionDigits: 0 })}</span>
             </div>
 
             <Button 

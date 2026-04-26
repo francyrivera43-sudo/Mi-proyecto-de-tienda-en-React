@@ -145,10 +145,10 @@ export const customProducts = [
   },
   {
     id: 17,
-    title: "Bolso Deportivo Shotokan",
-    price: 35.00,
-    description: "Mochila resistente negra con logo de Karate Shotokan.",
-    category: "accesorios",
+    title: "Chaqueta de Invierno Shotokan",
+    price: 60.00,
+    description: "Chaqueta acolchada negra con detalles rojos y logo de Karate Shotokan.",
+    category: "ropa",
     image: "/images/img_17.png",
     rating: { rate: 4.9, count: 65 }
   },

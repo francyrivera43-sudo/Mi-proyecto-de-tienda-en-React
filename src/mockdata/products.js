@@ -109,10 +109,10 @@ export const customProducts = [
   },
   {
     id: 13,
-    title: "Protector de Pecho Blanco",
+    title: "Uniforme Cobra Kai (Sin Mangas)",
     price: 42.00,
-    description: "Peto protector blanco Mooto para competición.",
-    category: "protecciones",
+    description: "Uniforme negro sin mangas estilo Cobra Kai con detalles amarillos.",
+    category: "uniformes",
     image: "/images/img_13.png",
     rating: { rate: 4.7, count: 65 }
   },
@@ -127,18 +127,18 @@ export const customProducts = [
   },
   {
     id: 15,
-    title: "Camiseta Karate Clásica",
-    price: 22.00,
-    description: "Camiseta de algodón premium con diseño clásico de Karate.",
+    title: "Buzo Cobra Kai (Negro/Amarillo)",
+    price: 45.00,
+    description: "Sudadera/Buzo negro con capucha amarilla y logo de Cobra Kai.",
     category: "ropa",
     image: "/images/img_15.png",
     rating: { rate: 4.8, count: 42 }
   },
   {
     id: 16,
-    title: "Camiseta Equipe Master",
-    price: 26.00,
-    description: "Camiseta deportiva roja y blanca Equipe Master 2021.",
+    title: "Buzo Cobra Kai (Camuflaje)",
+    price: 55.00,
+    description: "Sudadera/Buzo de camuflaje gris con forro polar y logo Cobra Kai.",
     category: "ropa",
     image: "/images/img_16.png",
     rating: { rate: 4.7, count: 15 }
@@ -154,28 +154,28 @@ export const customProducts = [
   },
   {
     id: 18,
-    title: "Coquilla Protectora",
-    price: 15.00,
-    description: "Coquilla protectora blanca con cintas elásticas ajustables.",
-    category: "protecciones",
+    title: "Conjunto de Karateguis Clásicos",
+    price: 85.00,
+    description: "Pack de uniformes tradicionales en blanco y negro.",
+    category: "uniformes",
     image: "/images/img_18.png",
     rating: { rate: 5.0, count: 15 }
   },
   {
     id: 19,
-    title: "Set Protecciones Completo",
-    price: 75.00,
-    description: "Set completo que incluye casco, peto, guantillas y espinilleras.",
-    category: "protecciones",
+    title: "Buzo Cobra Kai Oficial",
+    price: 45.00,
+    description: "Buzo negro y amarillo con logo oficial del dojo Cobra Kai.",
+    category: "ropa",
     image: "/images/img_19.png",
     rating: { rate: 4.2, count: 88 }
   },
   {
     id: 20,
-    title: "Guantillas WKF",
-    price: 29.99,
-    description: "Guantillas homologadas WKF para kumite.",
-    category: "protecciones",
+    title: "Chaqueta Deportiva Shotokan",
+    price: 55.00,
+    description: "Chaqueta ligera para entrenamiento con insignias Shotokan.",
+    category: "ropa",
     image: "/images/img_20.png",
     rating: { rate: 4.6, count: 140 }
   }

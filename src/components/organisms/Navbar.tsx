@@ -35,11 +35,11 @@ export default function Navbar() {
               <Link to="/" className="text-sm font-semibold text-gray-600 hover:text-violet-600">
                 Inicio
               </Link>
-              <Link to="/category/electronics" className="text-sm font-semibold text-gray-600 hover:text-violet-600">
-                Electrónica
+              <Link to="/category/uniformes" className="text-sm font-semibold text-gray-600 hover:text-violet-600">
+                Uniformes
               </Link>
-              <Link to="/category/men's clothing" className="text-sm font-semibold text-gray-600 hover:text-violet-600">
-                Hombres
+              <Link to="/category/protecciones" className="text-sm font-semibold text-gray-600 hover:text-violet-600">
+                Protecciones
               </Link>
             </div>
           </div>
@@ -114,9 +114,9 @@ export default function Navbar() {
           />
 
           <Link to="/" onClick={() => setIsMenuOpen(false)}>Inicio</Link>
-          <Link to="/category/electronics" onClick={() => setIsMenuOpen(false)}>Electrónica</Link>
-          <Link to="/category/men's clothing" onClick={() => setIsMenuOpen(false)}>Hombres</Link>
-          <Link to="/category/women's clothing" onClick={() => setIsMenuOpen(false)}>Mujeres</Link>
+          <Link to="/category/uniformes" onClick={() => setIsMenuOpen(false)}>Uniformes</Link>
+          <Link to="/category/ropa" onClick={() => setIsMenuOpen(false)}>Ropa</Link>
+          <Link to="/category/protecciones" onClick={() => setIsMenuOpen(false)}>Protecciones</Link>
 
           {!isAuthenticated ? (
             <Link to="/login" className="block bg-blue-600 text-white text-center p-2 rounded">

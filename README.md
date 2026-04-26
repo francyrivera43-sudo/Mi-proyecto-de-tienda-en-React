@@ -1,10 +1,10 @@
-# Fullstack Challenge - E-commerce 🚀
+# Karate Pro Shop - E-commerce 🥋🚀
 
 ## 🎯 Objetivo General
 Desarrollar una aplicación web tipo **E-commerce** utilizando React, aplicando conceptos clave como:
 - Componentización (Atomic Design)
 - Manejo de estado (Zustand)
-- Consumo de APIs (FakeStore API)
+- Datos locales simulados y filtrado dinámico
 - Navegación entre vistas (SPA con React Router)
 - Buenas prácticas de desarrollo frontend
 
@@ -12,10 +12,10 @@ Desarrollar una aplicación web tipo **E-commerce** utilizando React, aplicando 
 
 ## 📝 Presentación del Proyecto
 ### Información General
-- **Nombre del Proyecto:** Fullstack Challenge - E-commerce
+- **Nombre del Proyecto:** Karate Pro Shop - E-commerce
 - **Autor:** Francy Rivera
 - **Repositorio:** https://github.com/francyrivera43-sudo/Mi-proyecto-de-tienda-en-React
-- **Deploy (GitHub Pages):** [Enlace en vivo]
+- **Deploy (Vercel):** [Añadir enlace de Vercel aquí una vez publicado]
 
 ---
 

@@ -24,10 +24,10 @@ export default function MainLayout({ children }: MainLayoutProps) {
             <div>
               <h4 className="text-sm font-bold text-gray-900 uppercase tracking-widest mb-4">Categorías</h4>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li>Electrónica</li>
-                <li>Joyería</li>
-                <li>Hombres</li>
-                <li>Mujeres</li>
+                <li>Uniformes</li>
+                <li>Ropa</li>
+                <li>Protecciones</li>
+                <li>Cinturones</li>
               </ul>
             </div>
             <div>

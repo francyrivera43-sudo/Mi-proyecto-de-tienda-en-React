@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useCartStore } from '../store/cartStore';
 import { useAuthStore } from '../store/authStore';
 import { customProducts } from '../mockdata/products';
+import { useProductStore } from '../store/productStore';
 import ProductItem from '../components/molecules/ProductItem';
 
 interface Product {

@@ -10,7 +10,7 @@ export const customProducts = [
   },
   {
     id: 2,
-    title: "Sudadera Kyokushin Karate",
+    title: "Buzo Kyokushin Karate",
     price: 65.00,
     description: "Sudadera de manga larga negra con logo de Kyokushin en el pecho.",
     category: "ropa",
@@ -73,10 +73,10 @@ export const customProducts = [
   },
   {
     id: 9,
-    title: "Guantillas Karate (Azul)",
+    title: "Cinturones de Grados",
     price: 25.00,
-    description: "Guantillas azules homologadas.",
-    category: "protecciones",
+    description: "Cinturones de todos los colores para diferentes grados.",
+    category: "cinturones",
     image: "/images/img_9.png",
     rating: { rate: 5.0, count: 90 }
   },
@@ -100,10 +100,10 @@ export const customProducts = [
   },
   {
     id: 12,
-    title: "Protector Bucal Doble",
+    title: "Camiseta Karate (Negra)",
     price: 8.50,
-    description: "Protector bucal termomoldeable de doble capa para máxima seguridad dental.",
-    category: "protecciones",
+    description: "Camiseta negra deportiva con diseño de Karate.",
+    category: "ropa",
     image: "/images/img_12.png",
     rating: { rate: 4.3, count: 110 }
   },
